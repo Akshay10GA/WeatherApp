@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -21,6 +22,21 @@ export class WeatherserviceService {
   // api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 
   constructor(private http: HttpClient) { }
+
+  getPosition(): Promise<any>
+  {
+    return new Promise((resolve, reject) => {
+
+      navigator.geolocation.getCurrentPosition(resp => {
+
+          resolve({lng: resp.coords.longitude, lat: resp.coords.latitude});
+        },
+        err => {
+          reject(err);
+        });
+    });
+
+  }
 
   getForecastData(city:string){
     const url = `https://api.weatherapi.com/v1/forecast.json?key=${this.API_KEY_}&q=${city}&days=1&aqi=no&alerts=no`;

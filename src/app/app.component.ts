@@ -2,6 +2,8 @@ import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { WeatherserviceService } from './service/weatherservice.service';
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import {GeolocationService} from '@ng-web-apis/geolocation';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +15,11 @@ export class AppComponent implements OnInit {
     public weatherService: WeatherserviceService,
     private datepipe: DatePipe,
     private http: HttpClient,
-    private changeDetectorRef: ChangeDetectorRef
-  ) {}
-
+    private changeDetectorRef: ChangeDetectorRef,
+  ) {
+    
+  }
+  route:any;
   country: any;
   videoSource: any;
   flag: any;
@@ -39,14 +43,15 @@ export class AppComponent implements OnInit {
   fivedayscondition: any = [];
   fivedaysicon: any = [];
   errorMessage: string = '';
+  latitude: any;
+  longitude: any;
 
   ngOnInit(): void {
     this.startLoading();
-    this.http.get<any>(`https://api.ipify.org?format=json`).subscribe((IP) => {
-      this.http
-        .get<any>(`https://ip-api.com/json/${IP.ip}`)
-        .subscribe((CurLoc) => {
-          this.CurrentCity = `${CurLoc.city}`;
+    this.weatherService.getPosition().then(pos=>
+      {//address.city //address.country
+         this.http.get<any>(`https://geocode.maps.co/reverse?lat=${pos.lat}&lon=${pos.lng}`).subscribe(CurLoc=>{
+          this.CurrentCity = `${CurLoc.address.city}`;
           this.date = new Date();
           const options: Intl.DateTimeFormatOptions = {
             day: 'numeric', // Get the day of the month as a number (e.g., "15")
@@ -58,9 +63,11 @@ export class AppComponent implements OnInit {
           this.serachCityWeather(this.CurrentCity);
           this.searchfivedaysforecast(this.CurrentCity);
           this.stopLoading();
+        })
         });
-    });
   }
+
+  
 
   onKeydown(event: { key: string; },value: any){
     if (event.key === "Enter") {
