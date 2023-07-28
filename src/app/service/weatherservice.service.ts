@@ -23,12 +23,12 @@ export class WeatherserviceService {
   constructor(private http: HttpClient) { }
 
   getForecastData(city:string){
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=${this.API_KEY_}&q=${city}&days=1&aqi=no&alerts=no`;
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=${this.API_KEY_}&q=${city}&days=1&aqi=no&alerts=no`;
     return this.http.get<any>(url);
   }
 
   get5daysForecastData(city:string){
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=${this.API_KEY_}&q=${city}&days=6&aqi=no&alerts=no`;
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=${this.API_KEY_}&q=${city}&days=6&aqi=no&alerts=no`;
     return this.http.get<any>(url);
   }
 

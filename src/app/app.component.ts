@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
     this.startLoading();
     this.http.get<any>(`https://api.ipify.org?format=json`).subscribe((IP) => {
       this.http
-        .get<any>(`http://ip-api.com/json/${IP.ip}`)
+        .get<any>(`https://ip-api.com/json/${IP.ip}`)
         .subscribe((CurLoc) => {
           this.CurrentCity = `${CurLoc.city}`;
           this.date = new Date();
