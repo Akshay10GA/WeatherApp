@@ -1,0 +1,195 @@
+/* .example-spacer {
+    flex: 1 1 auto;
+  } */
+  /* .city-input{
+    margin-left: 40%;
+  }
+  .check-btn{
+    margin-left: 40%;
+  }
+  mat-spinner{
+    margin-left: 47%;
+    margin-top: 15%;
+  }
+  mat-card{
+    margin-top: 3%;
+    height:300px;
+    width: 300px;
+  }
+  .weather-icon{
+    width: 100px;
+    height: 100px;
+  }*/
+.input-weather{
+  width: 500px;
+  margin: 60px 70px 0px 0px;
+} 
+.input-group {
+  transition: box-shadow 0.0s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  box-shadow: 0 0 7px #faff6f; /* Add the side shadow on click */
+}
+.form-control {
+  /* Add your desired background color here */
+  background-color: #faff6fe8;
+  border: 1px solid #343801;
+  color: #012c58;
+}
+.form-control::placeholder {
+  color: #0658ab; /* Replace with the color you want for the placeholder */
+  opacity: 0.6;
+}
+.input-group-text{
+  background-color: #d9dbe687;
+  border: 1px solid #0658ab;
+  cursor: pointer;
+}
+.CurrrentLoc{
+  color: aliceblue;
+  margin: 70px auto 0px 120px;
+}
+.city{
+  font-size: 60px;
+}
+.day-month{
+  font-size: 20px;
+}
+.weather-icon{
+  width: 100px;
+}
+.weather-icon-1{
+  
+}
+.weather-icon-2{
+}
+.second-state{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 5px;
+  padding-top: 30px;
+  background-color: #263bb55d;
+}
+.icon-weather-panel{
+  margin-right: 65px;
+  display: flex;
+  justify-content: space-evenly;
+}
+.Temp{
+  font-size: 160px;
+  margin-top: -50px;
+  color: aliceblue;
+}
+.weather{
+  font-size: 20px;
+  margin-top: -50px;
+  color: aliceblue;
+  margin-left: 5px;
+}
+.last-lane{
+  color: aliceblue;
+  font-size: 30px;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+}
+.span-1{
+  margin-right: 100px;
+}
+.span-2{
+  margin-right: 100px;
+}
+.span-3{
+  margin-right: 100px;
+}
+.spinner-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.fivedays-forecast-panel{
+
+}
+.forecast-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+  margin-top: 25px;
+}
+mat-card{
+  background-color: #263bb55d;
+}
+.justify-matcard{
+  display: flex;
+  justify-content: space-evenly;
+}
+.card-date{
+  margin-top: 5px;
+  text-align: center;
+  color: aliceblue;
+  font-weight: bold;
+  font-size: 20px;
+}
+.card-icon{
+  margin-left: 30%;
+  margin-top: -10%;
+  width: 100px;
+}
+.cards-div{
+  width: 250px;
+  height: 250px;
+}
+.card-maxtemp{
+  margin-top: 5px;
+  text-align: center;
+  color: aliceblue;
+  font-weight: bold;
+  font-size: 15px;
+}
+.card-mintemp{
+  text-align: center;
+  color: aliceblue;
+  font-weight: bold;
+  font-size: 15px;
+}
+.card-condition{
+  text-align: center;
+  color: aliceblue;
+  font-weight: bold;
+  font-size: 15px;
+}
+.error-card {
+  position: fixed;
+  margin-left: 175px;
+  margin-top: -10px;
+  transform: translateX(-50%);
+  background-color: #ff4d4f;
+  color: white;
+  padding: 8px 60px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 9999; /* Ensure it appears above other elements */
+  display: none; /* Hide the card by default */
+}
+
+/* Show the error card when there's an error */
+.show-error-card {
+  display: block;
+}
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 150%;
+  object-fit: cover;
+  z-index: -1; /* Make sure the video is behind other content */
+}
